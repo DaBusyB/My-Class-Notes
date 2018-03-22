@@ -1,0 +1,26 @@
+/* Weight Con't */
+/* what if there are two selectors of the same weight see lines 39 and 43 */
+/* .second and .divId are the same weight the one that comes last will win */
+
+div { /* element selectors hold least weight. every other selector before or after it will override it */
+    border: 1px solid blue;
+}
+
+
+
+.divClass { 
+    background: yellow;
+    width: 100px;
+    height: 100px;
+    color: rgb(207, 106, 23); 
+}
+
+.second { /* move this above the .divClass to see what happens */
+    color: rgb(41, 20, 161); 
+}
+        
+#divId { 
+    background: green;
+    width: 300px;
+    height: 300px;
+}

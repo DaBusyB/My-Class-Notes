@@ -1,0 +1,9 @@
+- we need js in bootstrap for -DOM manipulation
+                              -talking to the backend
+
+- doesnt necessarily mean that I will be writing js
+
+WHY DO FORMS NEED JS?   
+- DOM manipulation - form validation
+- forms talk to the backend to check your info against stored info
+- security

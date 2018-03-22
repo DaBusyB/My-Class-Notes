@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script type="text/javascript" src="./DOM-2.js"></script><!-- type is for older browsers to tell them that it's a JS file. Newer browers infer this. Src neds to be the relative path of the JS file. If the file is in the same folder as the html file use ./filename.js -->
+        <link rel="stylesheet" type="text/css" href="./DOM-2.css">
+    </head>
+    <body>
+        <div id="first" class="parent">
+            <div class="child">
+
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- 
+- when the browser goes in and interprets the html, an object is build and I have access to it through the JS console by typing document. 
+- go to JS console and type console.log(document); everything in blue is the document, look through #document and see what's there
+-->
+
+<!--
+- document is an object that is only available on JS running on a web browser
+- in the console type document.body   document is the object and body is the key on that object, the information returned in the console is the value of the object
+-->
+
+<!--
+- now that I have access to the DOM itself. the DOM has the ability to select elements from inside of itself
+- in the console type document.body.children
+- I can traverser through the DOM and select items that I want
+-->
+
+<!-- please see DOM-2.js -->

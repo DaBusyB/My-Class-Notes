@@ -1,0 +1,251 @@
+                                                               ****REACT NOTES****
+
+
+***WHAT IS REACT?***
+
+*React is a JS library made by FB
+*React is fast - complex updates, quick, responsive
+*React is modular - small, reusable files
+*React is scalable - good with lots of changing data in large programs
+*React is flexible - web apps or non-web apps
+*React uses JSX
+
+***WRITING JSX ELEMENTS***
+
+*JSX is a syntax extension for JS to be used with React
+*JSX is nto valid JS - it needs to be compiled (translated) into regular Jx
+*JSX element - a basic unit of JSX - looks like HTML ex. <p>Hello world</p>
+*JSX elements are treated as JS expressions
+*JSX elements can go anywhere JS expressions can go (i.e. saved in a variable, passed to function, stored in obj or arr, etc) ex. const greetingPara = <p>Hello world</p>
+ex. of JSX elements being stored in an obj
+const myTeam = {
+  center: <li>Shaq</li>,
+  powerForward: <li>Rasha Loa</li>,
+  smallForward: <li>Tayshaun Dasmoto</li>,
+  shootingGuard: <li>LeBron James</li>,
+  pointGuard: <li>Me</li>
+};
+
+*JSX elements can have attributes just like HTML elements
+*JSX attributes are written as name = "value"  ex. my-attribute-name = "my-attribute-value"  ex. <a href="http://www.example.com">Welcome to the Web</a>;  ex. const title = <h1 id="title">Introduction to React.js: Part I</h1>;
+*JSX elements can have many attributes, just like HTML  ex. const panda = <img src="images/panda.jpg" alt="panda" width="500px" height="500px" />;
+*JSX elements can be nested inside of one another ex. <a href="https://www.example.com"><h1>Click me!</h1></a>
+*JSX elements that take up more than one line need to be wrapped in parens. Making a nested element into a multi-line element makes it more readable 
+ex. (
+      <a href="https://www.example.com">
+        <h1>
+          Click me!
+        </h1>
+      </a>
+      )
+
+*JSX expressions that are nested can be saved as variables and then passed into functions just like non-nested expressions 
+ex. const thisExample = (
+<a href="https://www.example.com">
+  <h1>
+    Click me!
+  </h1>
+</a>
+);
+
+*JSX expressions must have just one outtermost element i.e. the first opening tag and final closing tag of a JSX expression must belong to the same JSX element
+ex.
+const paragraphs = (
+  <div id="i-am-the-outermost-element">
+    <p>I am a paragraph.</p>
+    <p>I, too, am a paragraph.</p>
+  </div>
+);
+
+versus
+
+ex.
+const paragraphs = (
+  <p>Outtermost element one.</p> 
+  <p>Outtermost element two.</p>
+  <p>This variable has four outtermost elements.</p>
+  <p>This will not work.</p>
+);
+
+*If I notice that a JSX expression has multiple outer elements, just wrap them in a div
+ex.
+const paragraphs = (
+  <div>
+    <p>Outtermost element one.</p> 
+    <p>outtermost element two.</p>
+    <p>This variable has four outtermost elements.</p>
+    <p>This will now work because it's wrapped in a div.</p>
+  </div>
+);
+
+
+***RENDERING REACT***
+
+*Render - to make it appear on the screen
+
+**File 1
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app'));
+
+*ReactDOM is the name of a JS library
+*ReactDOM holds lots of React methods and all of them deal with the DOM in some sort of way
+*ReactDOM.render()  a React method, very common way to render JSX, it takes arguments, the first argument should be a JSX expression (in this case, it's <h1>Hello world</h1>). The first argument will appear on the screen
+*ReactDOM.render()  the first argument should be an expression, but doesn't have to be a literal expression, it could be a variable as long as it evaluates to an expression
+*ReactDom.render()  the second argument, document.getElementById('app'), appends the first argument, <h1>Hello world</h1>, to whatever element is selected by the second argument, which is the app element
+*The app element is usually found in the body of the HTML file. It's a container for the first argument
+*ReactDOM.render() only updated DOM elements that have changed
+1. A JSX element renders.
+2. The entire virtual DOM updates.
+3. The virtual DOM "diffs," comparing its current self with its previous self.
+4. Part of the real DOM updates.
+5. The screen looks different than it used to.
+
+
+***More JSX***
+
+*JSX doesn't allow using the word class by itself, it's a reserved keyword in JS. Use className instead, it will be rendered into class ex. <h1 className="big">Hey</h1>
+*A backslash in self closing tags is optional in HTML. ex. <br. and <br/> are the same. In JSX, they are mandatory
+*When I want my code to be read like JS and not JSX, I must wrap it in curly brackets
+ex. <h1>2 + 3</h1> will render as 2 + 3
+ex. <h1>{2 + 3}</h1> will render as 5
+*Injecting JS into JXS through curly braces gives me access to variables while inside the JSX expression, even if the variabla was declared outside the expression
+ex.
+const name = 'Gerdo'; // variable declared
+
+const greeting = <p>Hello, {name}!</p>; //variable is accessed from inside the JSX expression
+
+*In JSX, it's common to use varibles to set attributes
+ex.
+const sideLength = "200px";
+
+const panda = (
+  <img 
+    src="images/panda.jpg" 
+    alt="panda" 
+    height={sideLength} 
+    width={sideLength} />
+);
+
+*Object properties can also be used to set attributes just use {objname.objkey} to put the value in the attribute
+ex.
+const pics = {
+  panda: "http://bit.ly/1Tqltv5",
+  owl: "http://bit.ly/1XGtkM3",
+  owlCat: "http://bit.ly/1Upbczi"
+}; 
+
+const panda = (
+  <img 
+    src={pics.panda} 
+    alt="Lazy Panda" />
+);
+
+const owl = (
+  <img 
+    src={pics.owl} 
+    alt="Unimpressed Owl" />
+);
+
+const owlCat = (
+  <img 
+    src={pics.owlCat} 
+    alt="Ghastly Abomination" />
+);
+
+*JSX elements can have event listeners just like HTML elements here are the supported even listeners https://goo.gl/pE4RH5
+*JSX event listeners are created by giving an element an event attribute ex. <img onClick={myFunc} />
+*JSX event listeners are written in camelCase versus all lower case in HTML
+*The value of an event lister should be a function so the above myFunc shoule be a function that is declared elsewhere
+ex.
+function myFunc() {
+  alert('Make myFunc the pFunc... omg that was horrible i am so sorry');
+}
+
+<img onClick={myFunc} />
+
+*If statements cannot be injected into JSX expressions 
+*One way to overcome this is to NOT inject the words if or else into JSX, keep them on the outside...
+ex.
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+let message;
+
+if (user.age >= drinkingAge) {
+  message = (
+    <h1>
+      Hey, check out this alcoholic beverage!
+    </h1>
+  );
+} else {
+  message = (
+    <h1>
+      Hey, check out these earrings I got at Claire's!
+    </h1>
+  );
+}
+
+ReactDOM.render(
+  message, 
+  document.getElementById('app')
+);
+
+*Another option is to use a ternary operator it can be used the same way as JS, just inject it with curly braces
+ex.
+const headline = (
+  <h1>
+    { age >= drinkingAge ? 'Buy Drink' : 'Do Teen Stuff' }
+  </h1>
+);
+
+ex.
+const img = <img src={pics[coinToss() === 'heads'? 'kitty' : 'doggy']} />;
+
+*Another way is to use the && operator. This shows up in react often
+*The && operator works best in conditionals that will sometimes do an action, but other times do nothing
+ex.
+const tasty = (
+  <ul>
+    <li>Applesauce</li>
+    { !baby && <li>Pizza</li> }
+    { age > 15 && <li>Brussels Sprouts</li> }
+    { age > 20 && <li>Oysters</li> }
+    { age > 25 && <li>Grappa</li> }
+  </ul>
+);
+
+*The .map() array method happens a lot in React
+ex.
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const people = ['Rowe', 'Prevost', 'Gare'];
+
+const peopleLis = people.map(eachperson =>
+  // expression goes here:
+<li>{eachperson}</li>
+);
+
+ReactDOM.render(<ul>{peopleLis}</ul>, document.getElementById('app'));
+
+*The items don't have to be in an array to map over them
+ex.
+<ul> // This is fine in JSX, not in an explicit array:
+  <li>item 1</li>
+  <li>item 2</li>
+  <li>item 3</li>
+</ul>
+
+const liArray = [    // This is also fine!
+  <li>item 1</li>, 
+  <li>item 2<li>, 
+  <li>item 3</li>
+];
+
+<ul>{liArray}</ul>
+
+*There will be times when my list in JSX will need keys
+*Keys are a JSX attribute. The value should be unique, kind of like a
+

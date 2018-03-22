@@ -1,0 +1,27 @@
+/* Weight */
+
+
+div { /* element selectors hold least weight. every other selector before or after it will override it */
+    border: 1px solid blue;
+}
+    
+.divClass { /* has more weight than element selector and gets overridden by everything else */
+    background: yellow;
+    width: 100px;
+    height: 100px;
+    color: red; /* this will override the color in the class selector below */
+}
+
+#second { 
+    color: green; /* this color overrides the red color asigned to all divClass elements because it's an id selector */
+}
+    
+#divId { /* id's overrides almost everything else */
+    background: green;
+    width: 300px;
+    height: 300px;
+}  
+
+/* inline styles could be added to the html file to override class and id, but this is not best practice */
+/* style element in html file actually has highest weigh but its poor practice*/
+/* uncomment the style element in line 9 to see what happens */

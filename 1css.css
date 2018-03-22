@@ -1,0 +1,23 @@
+/* Three ways to select html elements */
+
+/* this will look for every div element in the html file and apply these rules to them */
+/* this is an element selector. it has the least amount of weight */
+div { 
+width: 100px;
+height: 100px;
+border: 1px solid blue;
+}
+
+/* this is an id */
+/* have significant weight and can override almost everything */
+/* will always reference on thing on the html page, the element with that id */
+#divId {
+background: green;
+}
+
+/* every class with the same name will have these values */
+.divClass {
+    background: yellow;
+}
+
+/* use html reset code in my css file with every webpage. is gives us a clean slate to begin with*/

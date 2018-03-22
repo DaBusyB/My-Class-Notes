@@ -1,0 +1,57 @@
+documentation is at getbootstrap.com
+
+
+*Library vs Framework  
+
+- a library or framework - a codebase created by someone and it will make my life easier library is more targeted 
+
+- a library - more general, can be small
+- framework - more broad and can change the way I use the language all together
+            - changes the way you use the language
+
+
+*When to use frameworks or libraries? 
+
+ask myself...
+
+1) Is the library or framework well established and supported?
+2) What is the ramp up time? learning time?
+3) Does this actually solve the problem I want it to solve?
+
+
+*How to use Bootstrap
+
+My code needs to be able to link to the bootstrap codebase
+
+-when traversing code bases, ask myself
+
+    - what library or framework am I using and how are they connected?
+    - is it hiding in my code base or am I linking to it online?
+
+1) by pasting CSS link in header - the link is in the docs
+              and JS scripts - before closing body tag in html file
+
+              - good for playing around or small projects
+
+
+
+2) download the bootstrap codebase into my file structure
+
+-bootstrap has a css and js folder with lots of other foles within them
+the main folders I need are bootstrap.css adn bootstrap.js
+
+- bootstrap - is a grid system
+            - mobile friendly
+            - abstracts things out to html
+
+- grid system - container
+              - inside container are rows
+              - inside rows are columns
+
+- when thinking of my layout think in container, row, column format             
+
+              
+
+                     
+
+

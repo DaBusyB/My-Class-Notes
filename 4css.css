@@ -1,0 +1,25 @@
+/* Weight Con't */
+/* the key word important will override everything */
+/* it will take precedence over every other rule */
+/* it doesnt look good bc basically it means i messed up somewhere and I cant find my mistake */
+ 
+div { /* element selectors hold least weight. every other selector before or after it will override it */
+    border: 1px solid blue;
+}
+
+.divClass { 
+    background: yellow;
+    width: 100px;
+    height: 100px;
+    color: rgb(26, 167, 56) !important; 
+}
+
+#second { /* even though this is an id and normally takes precedence over classes, the class has the !important key word which makes it take precedence */
+    color: blue; 
+}
+        
+#divId { 
+    background: green;
+    width: 300px;
+    height: 300px;
+}
